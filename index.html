@@ -3,6 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (() => {
+        const navigation = performance.getEntriesByType("navigation")[0];
+        const isReload = navigation?.type === "reload";
+
+        if ("scrollRestoration" in history) {
+          history.scrollRestoration = "manual";
+        }
+
+        if (isReload) {
+          window.scrollTo(0, 0);
+
+          window.addEventListener(
+            "pageshow",
+            () => {
+              window.scrollTo(0, 0);
+            },
+            { once: true },
+          );
+        }
+      })();
+    </script>
     <meta
       name="description"
       content="B-Side Café — coffee on Side A, records on Side B. Good coffee, real records, strong opinions."
@@ -69,7 +91,11 @@
 
           <p class="hero-pitch hero-reveal-item">
             Coffee on Side A.<br />
-            Records on Side B.
+            Vinyl on Side B.
+          </p>
+
+          <p class="hero-subpitch hero-reveal-item">
+            A café for drinking. A record shop for digging.
           </p>
 
           <p class="scroll-cue hero-reveal-item" aria-hidden="true">
@@ -105,6 +131,7 @@
         <div class="menu-layout">
           <div class="menu-left">
             <div class="section-heading">
+              <p class="eyebrow">SIDE A / CAFÉ</p>
               <h2 id="menu-title">PLAY SOMETHING</h2>
               <p>Six cuts. No skips. All coffee.</p>
             </div>
@@ -213,8 +240,9 @@
       >
         <div class="section-heading crate-heading">
           <div>
-            <p class="eyebrow">SIDE B / RECORDS FOR SALE</p>
+            <p class="eyebrow">SIDE B / RECORD SHOP</p>
             <h2 id="crate-title">THE CRATE</h2>
+            <p>DIG SOMETHING.</p>
           </div>
 
           <div class="now-playing" aria-live="polite">
@@ -222,7 +250,7 @@
 
             <div class="now-playing-copy">
               <span class="now-playing-label">NOW PLAYING</span>
-              <strong id="now-playing">NOTHING YET — PICK A RECORD</strong>
+              <strong id="now-playing">PICK A RECORD TO PREVIEW</strong>
             </div>
 
             <span class="now-playing-time" id="now-playing-time"
@@ -491,9 +519,10 @@
             café care about its records as much as it cares about its coffee?
           </p>
           <p>
-            So we built a small room for both. One record plays at a time. The
-            shelf is real. The coffee is serious. Everything else can wait until
-            the next side.
+            So we built a small room with two sides. Side A is the café. Side B
+            is the record shop. One record plays at a time, and every record in
+            the crate is there to take home. The coffee is serious. Everything
+            else can wait until the next side.
           </p>
         </div>
       </section>
@@ -505,7 +534,7 @@
         aria-labelledby="visit-title"
       >
         <div>
-          <h2 id="visit-title">DROP THE<br />NEEDLE.</h2>
+          <h2 id="visit-title">DROP THE<br />NEEDLE.<br />STAY FOR A CUP.</h2>
         </div>
 
         <div class="visit-details">
