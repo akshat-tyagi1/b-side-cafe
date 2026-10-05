@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="B-Side Café — coffee on Side A, records on Side B. Good coffee, real records, strong opinions."
+    />
+    <meta name="theme-color" content="#F4EDE0" />
+    <title>B-Side Café — Coffee on Side A</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- A tiny inline record icon keeps the site self-contained. -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='currentColor'/%3E%3Ccircle cx='32' cy='32' r='10' fill='none' stroke='white' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='3' fill='white'/%3E%3C/svg%3E"
+      type="image/svg+xml"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- GSAP is used only for the required scroll-driven animations. -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="#top" aria-label="B-Side Café home"
+        >B-SIDE<span>●</span></a
+      >
+
+      <nav aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#crate">Crate</a>
+        <a href="#story">Story</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero section-pad" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow hero-reveal-item">
+            EST. SOMEWHERE BETWEEN SIDE A &amp; SIDE B
+          </p>
+
+          <h1 id="hero-title">
+            <span class="hero-title-mask"
+              ><span class="hero-title-line">B-SIDE</span></span
+            ><br />
+            <span class="hero-title-mask"
+              ><span class="hero-title-line hero-title-accent">CAFÉ</span></span
+            >
+          </h1>
+
+          <p class="hero-pitch hero-reveal-item">
+            Coffee on Side A.<br />
+            Records on Side B.
+          </p>
+
+          <p class="scroll-cue hero-reveal-item" aria-hidden="true">
+            SCROLL TO FLIP THE RECORD
+          </p>
+
+          <a class="button hero-reveal-item" href="#crate">Dig the crate</a>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <!-- The spinning sticker stays behind the record and sleeve. -->
+          <div class="sticker sticker-yellow now-spinning-sticker">
+            NOW<br />SPINNING
+          </div>
+
+          <!-- The record starts mostly behind the sleeve. -->
+          <div class="hero-record">
+            <span class="hero-record-label"></span>
+            <span class="hero-record-mark"></span>
+          </div>
+
+          <div class="hero-sleeve">
+            <span>B-SIDE<br />PRESSING<br />NO. 01</span>
+          </div>
+        </div>
+
+        <!-- This sticker belongs to the hero itself, so it rises along the page edge. -->
+        <div class="sticker sticker-yellow no-skips-sticker">NO<br />SKIPS</div>
+      </section>
+
+      <!-- MENU -->
+      <section class="menu section-pad" id="menu" aria-labelledby="menu-title">
+        <div class="menu-layout">
+          <div class="menu-left">
+            <div class="section-heading">
+              <h2 id="menu-title">PLAY SOMETHING</h2>
+              <p>Six cuts. No skips. All coffee.</p>
+            </div>
+
+            <div class="menu-record" aria-hidden="true">
+              <div class="menu-record-disc">
+                <span>SIDE A</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tracklist-wrap">
+            <ol class="tracklist">
+              <li tabindex="0">
+                <span class="track-no">01</span>
+                <div class="track-copy">
+                  <span class="track-name"
+                    >Flat White <em>(Remastered)</em></span
+                  >
+                  <span class="track-description"
+                    >Velvety. No unnecessary remixes.</span
+                  >
+                </div>
+                <span class="track-time">03:20</span>
+                <strong>₹180</strong>
+              </li>
+
+              <li tabindex="0">
+                <span class="track-no">02</span>
+                <div class="track-copy">
+                  <span class="track-name"
+                    >Iced Brew <em>(Extended Mix)</em></span
+                  >
+                  <span class="track-description"
+                    >Slow release. Strong finish.</span
+                  >
+                </div>
+                <span class="track-time">04:10</span>
+                <strong>₹200</strong>
+              </li>
+
+              <li tabindex="0">
+                <span class="track-no">03</span>
+                <div class="track-copy">
+                  <span class="track-name"
+                    >Iced Latte <em>(Summer Edit)</em></span
+                  >
+                  <span class="track-description"
+                    >Cool, smooth, and easy to keep around.</span
+                  >
+                </div>
+                <span class="track-time">03:45</span>
+                <strong>₹210</strong>
+              </li>
+
+              <li tabindex="0">
+                <span class="track-no">04</span>
+                <div class="track-copy">
+                  <span class="track-name">Cappuccino <em>(Mono)</em></span>
+                  <span class="track-description"
+                    >Foamy top. Properly bitter underneath.</span
+                  >
+                </div>
+                <span class="track-time">03:05</span>
+                <strong>₹190</strong>
+              </li>
+
+              <li tabindex="0">
+                <span class="track-no">05</span>
+                <div class="track-copy">
+                  <span class="track-name">Mocha <em>(B-Side)</em></span>
+                  <span class="track-description"
+                    >Dark, sweet, and not trying too hard.</span
+                  >
+                </div>
+                <span class="track-time">04:00</span>
+                <strong>₹220</strong>
+              </li>
+
+              <li tabindex="0">
+                <span class="track-no">06</span>
+                <div class="track-copy">
+                  <span class="track-name">Espresso <em>(45 RPM)</em></span>
+                  <span class="track-description"
+                    >Tiny cup. Immediate point of view.</span
+                  >
+                </div>
+                <span class="track-time">02:15</span>
+                <strong>₹140</strong>
+              </li>
+            </ol>
+
+            <div class="tracklist-footer">
+              <span>6 tracks</span>
+              <span>Total runtime 20:35</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CRATE -->
+      <section
+        class="crate section-pad"
+        id="crate"
+        aria-labelledby="crate-title"
+      >
+        <div class="section-heading crate-heading">
+          <div>
+            <p class="eyebrow">SIDE B / RECORDS FOR SALE</p>
+            <h2 id="crate-title">THE CRATE</h2>
+          </div>
+
+          <div class="now-playing" aria-live="polite">
+            <span class="now-playing-record" aria-hidden="true"></span>
+
+            <div class="now-playing-copy">
+              <span class="now-playing-label">NOW PLAYING</span>
+              <strong id="now-playing">NOTHING YET — PICK A RECORD</strong>
+            </div>
+
+            <span class="now-playing-time" id="now-playing-time"
+              >READY WHEN YOU ARE</span
+            >
+          </div>
+        </div>
+
+        <div class="record-grid">
+          <article
+            class="record-card"
+            data-record="is-this-it"
+            data-title="Is This It"
+            data-artist="The Strokes"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Select Is This It by The Strokes"
+          >
+            <div class="sleeve-wrap">
+              <!-- The vinyl sits behind the cover and is revealed when this card is selected. -->
+              <div class="peek-record" aria-hidden="true">
+                <div class="peek-record-disc">
+                  <span class="peek-record-label"></span>
+                  <span class="peek-record-hole"></span>
+                </div>
+              </div>
+
+              <div class="sleeve">
+                <img
+                  src="assets/covers/is-this-it.webp"
+                  alt="Album cover of Is This It by The Strokes"
+                  width="640"
+                  height="640"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="record-no">01</span>
+                <span class="sleeve-glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="time-label">OPENS THE MORNING</p>
+            <h3>Is This It</h3>
+            <p class="artist">The Strokes</p>
+            <p class="blurb">For mornings that need a little more attitude.</p>
+            <strong class="record-price">₹2,400</strong>
+          </article>
+
+          <article
+            class="record-card"
+            data-record="either-or"
+            data-title="Either/Or"
+            data-artist="Elliott Smith"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Select Either/Or by Elliott Smith"
+          >
+            <div class="sleeve-wrap">
+              <!-- The vinyl sits behind the cover and is revealed when this card is selected. -->
+              <div class="peek-record" aria-hidden="true">
+                <div class="peek-record-disc">
+                  <span class="peek-record-label"></span>
+                  <span class="peek-record-hole"></span>
+                </div>
+              </div>
+
+              <div class="sleeve">
+                <img
+                  src="assets/covers/either-or.webp"
+                  alt="Album cover of Either/Or by Elliott Smith"
+                  width="640"
+                  height="640"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="record-no">02</span>
+                <span class="sleeve-glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="time-label">RAINY AFTERNOON</p>
+            <h3>Either/Or</h3>
+            <p class="artist">Elliott Smith</p>
+            <p class="blurb">
+              Quiet, a little bruised, and best with rain on the window.
+            </p>
+            <strong class="record-price">₹1,900</strong>
+          </article>
+
+          <article
+            class="record-card"
+            data-record="this-old-dog"
+            data-title="This Old Dog"
+            data-artist="Mac DeMarco"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Select This Old Dog by Mac DeMarco"
+          >
+            <div class="sleeve-wrap">
+              <!-- The vinyl sits behind the cover and is revealed when this card is selected. -->
+              <div class="peek-record" aria-hidden="true">
+                <div class="peek-record-disc">
+                  <span class="peek-record-label"></span>
+                  <span class="peek-record-hole"></span>
+                </div>
+              </div>
+
+              <div class="sleeve">
+                <img
+                  src="assets/covers/this-old-dog.webp"
+                  alt="Album cover of This Old Dog by Mac DeMarco"
+                  width="640"
+                  height="640"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="record-no">03</span>
+                <span class="sleeve-glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="time-label">LAZY GOLDEN HOUR</p>
+            <h3>This Old Dog</h3>
+            <p class="artist">Mac DeMarco</p>
+            <p class="blurb">
+              The musical equivalent of taking the long way home.
+            </p>
+            <strong class="record-price">₹2,300</strong>
+          </article>
+
+          <article
+            class="record-card"
+            data-record="bloom"
+            data-title="Bloom"
+            data-artist="Beach House"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Select Bloom by Beach House"
+          >
+            <div class="sleeve-wrap">
+              <!-- The vinyl sits behind the cover and is revealed when this card is selected. -->
+              <div class="peek-record" aria-hidden="true">
+                <div class="peek-record-disc">
+                  <span class="peek-record-label"></span>
+                  <span class="peek-record-hole"></span>
+                </div>
+              </div>
+
+              <div class="sleeve">
+                <img
+                  src="assets/covers/bloom.webp"
+                  alt="Album cover of Bloom by Beach House"
+                  width="640"
+                  height="640"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="record-no">04</span>
+                <span class="sleeve-glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="time-label">AFTER DARK</p>
+            <h3>Bloom</h3>
+            <p class="artist">Beach House</p>
+            <p class="blurb">
+              Big, glowing, and a little hazy. Turn the lights down to match.
+            </p>
+            <strong class="record-price">₹2,700</strong>
+          </article>
+
+          <article
+            class="record-card"
+            data-record="random-access-memories"
+            data-title="Random Access Memories"
+            data-artist="Daft Punk"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Select Random Access Memories by Daft Punk"
+          >
+            <div class="sleeve-wrap">
+              <!-- The vinyl sits behind the cover and is revealed when this card is selected. -->
+              <div class="peek-record" aria-hidden="true">
+                <div class="peek-record-disc">
+                  <span class="peek-record-label"></span>
+                  <span class="peek-record-hole"></span>
+                </div>
+              </div>
+
+              <div class="sleeve">
+                <img
+                  src="assets/covers/random-access-memories.webp"
+                  alt="Album cover of Random Access Memories by Daft Punk"
+                  width="640"
+                  height="640"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="record-no">05</span>
+                <span class="sleeve-glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="time-label">LATE-EVENING LIFT</p>
+            <h3>Random Access Memories</h3>
+            <p class="artist">Daft Punk</p>
+            <p class="blurb">Polished enough to fix a slow evening.</p>
+            <strong class="record-price">₹2,600</strong>
+          </article>
+
+          <article
+            class="record-card"
+            data-record="4-eyez-only"
+            data-title="4 Your Eyez Only"
+            data-artist="J. Cole"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Select 4 Your Eyez Only by J. Cole"
+          >
+            <div class="sleeve-wrap">
+              <!-- The vinyl sits behind the cover and is revealed when this card is selected. -->
+              <div class="peek-record" aria-hidden="true">
+                <div class="peek-record-disc">
+                  <span class="peek-record-label"></span>
+                  <span class="peek-record-hole"></span>
+                </div>
+              </div>
+
+              <div class="sleeve">
+                <img
+                  src="assets/covers/4-your-eyez-only.webp"
+                  alt="Album cover of 4 Your Eyez Only by J. Cole"
+                  width="640"
+                  height="640"
+                  decoding="async"
+                  loading="lazy"
+                />
+                <span class="record-no">06</span>
+                <span class="sleeve-glare" aria-hidden="true"></span>
+              </div>
+            </div>
+            <p class="time-label">LAST CALL</p>
+            <h3>4 Your Eyez Only</h3>
+            <p class="artist">J. Cole</p>
+            <p class="blurb">A late-night closer. No small talk required.</p>
+            <strong class="record-price">₹2,200</strong>
+          </article>
+        </div>
+      </section>
+
+      <!-- STORY -->
+      <section
+        class="story section-pad"
+        id="story"
+        aria-labelledby="story-title"
+      >
+        <h2 id="story-title">
+          SOME CAFÉS HAVE A PLAYLIST.<br />
+          WE HAVE OPINIONS.
+        </h2>
+
+        <div class="story-copy">
+          <p>
+            B-Side started with one slightly unreasonable question: why can't a
+            café care about its records as much as it cares about its coffee?
+          </p>
+          <p>
+            So we built a small room for both. One record plays at a time. The
+            shelf is real. The coffee is serious. Everything else can wait until
+            the next side.
+          </p>
+        </div>
+      </section>
+
+      <!-- VISIT -->
+      <section
+        class="visit section-pad"
+        id="visit"
+        aria-labelledby="visit-title"
+      >
+        <div>
+          <h2 id="visit-title">DROP THE<br />NEEDLE.</h2>
+        </div>
+
+        <div class="visit-details">
+          <p>
+            <strong>18 Vinyl Lane</strong><br />
+            Sector 62, Noida<br />
+            Uttar Pradesh 201309
+          </p>
+
+          <p>
+            <strong>MON–SUN</strong><br />
+            8 AM — 11 PM
+          </p>
+
+          <a class="button visit-cta" href="mailto:hello@bsidecafe.in"
+            >Say hello</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>B-SIDE CAFÉ © 2026</span>
+      <span>COFFEE ON SIDE A / RECORDS ON SIDE B</span>
+      <small
+        >Album artwork belongs to the respective artists and labels, used with
+        permission from the ACM Tech Team lead for this student project.</small
+      >
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
